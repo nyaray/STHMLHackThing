@@ -1,0 +1,19 @@
+###
+# You have to rename this file to config.txt
+###
+
+# "me" referes to the actuall user
+# "me" only works with a token
+USER="me"
+
+# the token
+TOKEN=""
+
+# fields you want to get back
+#
+# this works w/o token but you have to provide a USER (not "me")
+# FIELDS="id,name,picture"
+#
+# this one needs a token, so you can test it
+FIELDS="id,name,likes"
+
