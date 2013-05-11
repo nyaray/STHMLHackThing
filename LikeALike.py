@@ -8,6 +8,8 @@ from pprint import pprint
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
 oauth_access_token = "CAACEdEose0cBAI2hZALVOvCSKLL7y34pHh1O0ye3bjv8WBkVJR5WbkIosws06jzL0zSBvNhcZBZAMD3LrXRmQZAySIsFs2jY8tYZCc6ZAIf14OV0771GThkhrwBRGA9o9Df708Nqu4HG1ZCG2QTodYqAOF6GG4zIrzUdltlDdjOlwZDZD"
+bigListDic = []
+bigHuglyHack = []
 
 def getGraph():
     return facebook.GraphAPI(oauth_access_token)
@@ -74,7 +76,6 @@ def getListOfDicOfIntersections():
     jensProfile = getProfile(graph, "jens.rosen")
     jensLikes = getLikes(graph, jensProfile)
 
-
     # pprint(getListByCategory(meLikes['data']))
     # friends = {'nyarayProfile['id']': nyarayLikes,
     #            'miaProfile['id']': miaLikes,
@@ -90,11 +91,18 @@ def getListOfDicOfIntersections():
     # this is a list of dictionaries
     # this will be needed to have a mapping between id -> name
     listOfCoolStuff = meLikes['data']
+    global bigHuglyHack
+    bigHuglyHack = listOfCoolStuff
     meLikesIDList = getIDList(meLikes)
 
     miaLikesList = getIDList(miaLikes)
     jensLikesList = getIDList(jensLikes)
     nyarayLikesList = getIDList(nyarayLikes)
+
+    global bigListDic
+    bigListDic.append({'Mia': miaLikesList})
+    bigListDic.append({'Jens': jensLikesList})
+    bigListDic.append({'Nyaray': nyarayLikesList})
 
     friendsList = []
     friendsList.extend(miaLikesList)
@@ -168,6 +176,37 @@ def printListDic(listOfDicInt):
     # print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
 
 
+def whoLikes(chose=19292868552):
+    # {'name': 'our like', 'friends': []}
+    dictio = {}
+    print "TEST"
+    print u"\nWe chose # {}".format(chose).encode(sys.getfilesystemencoding())
+
+    choseString = str(chose)
+
+    for ele in bigHuglyHack:
+        for key, value in ele.iteritems():
+            if (key == 'name'):
+                saveString = value
+            if (key == 'id' and value == choseString):
+                print(ele['name'])
+                dictio = {'name': ele['name']}
+
+    return dictio
+
+    # count = 0
+    # if chose in miaLikesList:
+    #     count = count + 1
+    #     print "Mia"
+    # if chose in jensLikesList:
+    #     count = count + 1
+    #     print "Jens"
+    # if chose in nyarayLikesList:
+    #     count = count + 1
+    #     print "Nyaray"
+
+    # return dictio
+
 
 if __name__ == '__main__':
     if not sys.version_info > (2, 7, 0):
@@ -177,6 +216,7 @@ if __name__ == '__main__':
         # main(sys.argv)
         listOfDicInt = getListOfDicOfIntersections()
         # printListDic(listOfDicInt)
+        whoLikes(19292868552)
     except:
         print "Error: Exception raised!"
         raise
