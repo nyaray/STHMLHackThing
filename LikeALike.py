@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import facebook
 import sys
@@ -6,7 +7,7 @@ import pprint
 
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
-oauth_access_token = "CAACEdEose0cBACMxiVg82sJzAg72oNCX1rLyZAXFZAAYzSZAyltV9U59c0otbEzE8UcdeSBR3ZB9iWwLClPxQvKI3ZCzHTdoPQFdaBQHzZCSim5kMMuWQzC221mQXbRuXa0QlGUy1jRB53UZAjRq4ZA3DVYmSz3NZAyZBAROvAPiLAyQZDZD"
+oauth_access_token = "CAACEdEose0cBAEKhZCdUZAap7Vpnt91ZAEpXEBKHj1QVJF1cuxCnSUf8qedRKsP6pPWc9uBVv6lyw36XcQOkLqlgu0PagZCZBAbssFVhZA5hmBswCmXmk3yOJfgZCT47yInwew2Mun9rFZAKqvetGaCFzo5mzDalHbZC3nVwHL0J73gZDZD"
 
 
 def getGraph():
@@ -33,8 +34,11 @@ def main(argv):
     # miaProfile = getProfile(graph, "mia5419")
     # jensProfile = getProfile(graph, "jens.rosen")
     # chrisLikes = getLikes(graph, chrisProfile)
-    pprint.pprint(meLikes)
+    # pprint.pprint(meLikes)
+    # print "------"
     # print ("My likes {}").format()
+    pprint.pprint(meLikes.values())
+    # print
 
 
 if __name__ == '__main__':
