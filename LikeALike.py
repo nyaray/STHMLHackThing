@@ -40,10 +40,13 @@ def getIntersection(listA, listB):
 
 
 def main(argv):
+    # pprint (facebook.get_app_access_token("421157351314971", "168836433e1d0efb56320bca5dcef2fd"))
     graph = getGraph()
 
     myProfile = getProfile(graph)
+
     meLikes = getLikes(graph, myProfile)
+    meFriends = getFriends(graph, myProfile)
 
     # chrisProfile = getProfile(graph, "christopher.loessl")
     # chrisLikes = getLikes(graph, chrisProfile)
@@ -100,7 +103,21 @@ def main(argv):
     # print "-------------"
     # pprint(stuffInCommonDict)
 
-    # print u"\nWe chose as a test NetHack (112228158790462)\n".encode(sys.getfilesystemencoding())
+    print u"\nWe chose as a test Facebook Developers (19292868552)\n".encode(sys.getfilesystemencoding())
+    chose = 19292868552
+
+    count = 0
+    if chose in miaLikesList:
+        count = count + 1
+        print "Mia"
+    if chose in jensLikesList:
+        count = count + 1
+        print "Jens"
+    if chose in nyarayLikesList:
+        count = count + 1
+        print "Nyaray"
+
+    print count
 
 
 if __name__ == '__main__':
