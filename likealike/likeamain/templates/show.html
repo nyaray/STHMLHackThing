@@ -1,1 +1,12 @@
-showin' frendz
+{% extends "base.html" %}
+
+{% block content %}
+<h2>U Like Alike</h2>
+Frendz dat luv: <strong>{{ likedThing.name }}</strong><br />
+<br />
+<table>
+{% for friend in likedThing.friends|dictsort:"name" %}
+<tr><td>{{ friend }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

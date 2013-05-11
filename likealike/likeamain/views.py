@@ -1,4 +1,5 @@
 import json
+import LikeALike
 
 from django.http import HttpResponse
 from django.template import Context, loader
@@ -6,44 +7,51 @@ from django.template import Context, loader
 def index(request):
 	""" list all the things that the current user likes, """\
 	""" grouped by category """
-	# TODO LIST := get the list of things the user likes, grouped by category
+
 	# hard coded test data... lol!
-	#categories = {
-		#{
-			#'id': '0',
-			#'display_name': 'fruits/oranges',
-			#'members': [
-				#{
-					#'id': '1',
-					#'display_name': 'alice'
-				#},
-				#{
-					#'id': '2',
-					#'display_name': 'bob'
-				#}
-			#],
-		#},
-		#{
-			#'id': '3',
-			#'display_name': 'fruits/apples',
-			#'members': [
-				#{
-					#'id': '4',
-					#'display_name': 'charlie'
-				#},
-				#{
-					#'id': '5',
-					#'display_name': 'trudy'
-				#}
-			#]
-		#}
-	#}
+	#categories = [
+	#		{
+	#			'id': '0',
+	#			'display_name': 'Fruits/oranges',
+	#			'members': [
+	#				{
+	#					'id': '1',
+	#					'display_name': 'blood',
+	#					'count': '23' # the number of friends that also like this
+	#				},
+	#				{
+	#					'id': '2',
+	#					'display_name': 'fancy italian one',
+	#					'count': '3'
+	#				}
+	#			],
+	#		},
+	#		{
+	#			'id': '3',
+	#			'display_name': 'Fruits/apples',
+	#			'members': [
+	#				{
+	#					'id': '4',
+	#					'display_name': 'pink lady',
+	#					'count': '5'
+	#				},
+	#				{
+	#					'id': '5',
+	#					'display_name': 'golden delicious',
+	#					'count': '7'
+	#				}
+	#			]
+	#		}
+	#	]
+
+	categories = LikeALike.getListOfDicOfIntersections()
+
 	# TODO use a template to render LIST
 	#return HttpResponse("index, listing categories.")
 	template = loader.get_template('index.html')
 	context = Context({
 		#'categories': categories
-		'categories': ['alice', 'bob', 'charlie', 'trudy']
+		'categories': categories
 	})
 	return HttpResponse(template.render(context))
 
@@ -51,9 +59,13 @@ def index(request):
 def show(request, fbID):
 	""" display friends that also like the object fbID """
 	# TODO LIST := get the list of friends that also like fbID
-	# TODO use a template to render LIST and use fbIDs of friends as values
-	#      posted to show_contact
-	return HttpResponse("view, showing the liked object {0}".format(fbID))
+
+	likedThing = LikeALike.whoLikes(fbID)
+	template = loader.get_template('show.html')
+	context = Context({
+		'likedThing': likedThing
+	})
+	return HttpResponse(template.render(context))
 
 
 def show_contact(request, fbID):
@@ -64,5 +76,7 @@ def show_contact(request, fbID):
 
 def uh_oh(request):
 	""" 404 response """
-	return HttpResponse("uh oh... page not found! zOMG!!!1")
+	template = loader.get_template('404.html')
+	context = Context({})
+	return HttpResponse(template.render(context))
 
