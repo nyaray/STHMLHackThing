@@ -25,6 +25,22 @@ def getLikes(graph, profile):
 def getFriends(graph, profile):
     return graph.get_connections(profile['id'], "friends")
 
+def makeDict(data):
+    dic = []
+    for x in data:
+        dic.append(x['category'])
+    a = list(set(dic))
+    return [{'category': x, 'members': list()} for x in a]
+
+
+def getListByCategory(data):
+    dic = makeDict(data)
+    for x in data:
+        for y in dic:
+            if x['category'] == y['category']:
+                y['members'].append(x)
+    return dic
+
 
 def getIDList(likes):
     tmpList = []
@@ -54,6 +70,8 @@ def main(argv):
     jensProfile = getProfile(graph, "jens.rosen")
     jensLikes = getLikes(graph, jensProfile)
 
+
+    print getListByCategory(meLikes['data'])
     # friends = {'nyarayProfile['id']': nyarayLikes,
     #            'miaProfile['id']': miaLikes,
     #            'jensProfile['id']': jensLikes
