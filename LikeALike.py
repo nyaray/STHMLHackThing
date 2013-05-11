@@ -75,7 +75,7 @@ def getListOfDicOfIntersections():
     jensLikes = getLikes(graph, jensProfile)
 
 
-    pprint(getListByCategory(meLikes['data']))
+    # pprint(getListByCategory(meLikes['data']))
     # friends = {'nyarayProfile['id']': nyarayLikes,
     #            'miaProfile['id']': miaLikes,
     #            'jensProfile['id']': jensLikes
