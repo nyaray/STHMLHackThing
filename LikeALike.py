@@ -7,7 +7,7 @@ from pprint import pprint
 
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
-oauth_access_token = "CAACEdEose0cBAEh7ZCbvNIeN7qPihDQE6mn1PwGEAAUzXPyzUQhk61oA8Dw50LBGMSCAgRWwP4H7RYlnDu2Tbk4DZAQ9CliZB1oU2YP1V26xUQLZCgqYnzio7F8uoPjTb1tseslZCcxCEyY0M9rPXLHZBOux8xV766g4UGkPpufQZDZD"
+oauth_access_token = "CAACEdEose0cBAGe4m6yb8gMBSzTr7U1CyIL0uLWjAwA6U8uZAcFg08wMRp6tE6jGWboXXuDGZAgCTqWqIVIEZAAHh6ZCuCQvz5LN1AuSXoyZCuQvJZAhPKaltyA4TlHYErpGvBTxslCGDIKYw7vmYAWNSivQpATNU0LPSQdr4cgAZDZD"
 
 
 def getGraph():
@@ -70,15 +70,19 @@ def main(argv):
     listOfCoolStuff = meLikes['data']
     meLikesIDList = getIDList(meLikes)
 
+    miaLikesList = getIDList(miaLikes)
+    jensLikesList = getIDList(jensLikes)
+    nyarayLikesList = getIDList(nyarayLikes)
+
     friendsList = []
-    friendsList.extend(getIDList(miaLikes))
-    friendsList.extend(getIDList(jensLikes))
-    friendsList.extend(getIDList(nyarayLikes))
+    friendsList.extend(miaLikesList)
+    friendsList.extend(jensLikesList)
+    friendsList.extend(nyarayLikesList)
 
     intersectionList = []
-    intersectionList.extend(getIntersection(getIDList(meLikes), getIDList(miaLikes)))
-    intersectionList.extend(getIntersection(getIDList(meLikes), getIDList(jensLikes)))
-    intersectionList.extend(getIntersection(getIDList(meLikes), getIDList(nyarayLikes)))
+    intersectionList.extend(getIntersection(meLikes, miaLikes))
+    intersectionList.extend(getIntersection(meLikes, jensLikes))
+    intersectionList.extend(getIntersection(meLikes, nyarayLikes))
 
     stuffInCommonDict = {}
     finalList = []
@@ -88,13 +92,13 @@ def main(argv):
             finalList.append(element['name'])
             stuffInCommonDict[element['name']] = int(element['id'])
             stuffInCommonDict[element['id']] = (element['name'])
-        # print
-        # u"{}".format(element['name']).encode(sys.getfilesystemencoding())
+        print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
         # tmpList.append(int(element['id']))
     finalList.sort()
-    # pprint(finalList)
     # print "-------------"
-    pprint(stuffInCommonDict)
+    # pprint(stuffInCommonDict)
+
+    print u"\nWe chose as a test NetHack (112228158790462)\n".encode(sys.getfilesystemencoding())
 
 
 if __name__ == '__main__':
