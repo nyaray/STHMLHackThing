@@ -176,7 +176,7 @@ def printListDic(listOfDicInt):
     # print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
 
 
-def whoLikes(chose=19292868552):
+def whoLikes(chose):
     # {'name': 'our like', 'friends': []}
     dictio = {}
     print "TEST"
@@ -231,7 +231,7 @@ if __name__ == '__main__':
         # main(sys.argv)
         listOfDicInt = getListOfDicOfIntersections()
         # printListDic(listOfDicInt)
-        whoLikes(19292868552)
+        whoLikes(189973461027841)
     except:
         print "Error: Exception raised!"
         raise
