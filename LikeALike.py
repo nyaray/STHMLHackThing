@@ -2,6 +2,7 @@
 
 import facebook
 import sys
+import pprint
 
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
@@ -32,7 +33,7 @@ def main(argv):
     # miaProfile = getProfile(graph, "mia5419")
     # jensProfile = getProfile(graph, "jens.rosen")
     # chrisLikes = getLikes(graph, chrisProfile)
-    print meLikes
+    pprint.pprint(meLikes)
     # print ("My likes {}").format()
 
 
