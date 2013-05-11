@@ -7,7 +7,7 @@ from pprint import pprint
 
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
-oauth_access_token = "CAACEdEose0cBAI2hZALVOvCSKLL7y34pHh1O0ye3bjv8WBkVJR5WbkIosws06jzL0zSBvNhcZBZAMD3LrXRmQZAySIsFs2jY8tYZCc6ZAIf14OV0771GThkhrwBRGA9o9Df708Nqu4HG1ZCG2QTodYqAOF6GG4zIrzUdltlDdjOlwZDZD"
+oauth_access_token = "CAACEdEose0cBAL4uIb60x7GzDJBI5kyUxu5yZAOtTtU9UsKe6WeN8u80fLlpAgdPg3HpkFFTFWLWX61CwQXHU0G1afTIL6ZA3hAzDQ8pf9BlbDXZAR8pB9pVbYXYDvPHlzNUhogHIjLjiigwQEbxnEZAfssFdTYFpcIChgrIFQZDZD"
 bigListDic = []
 bigHuglyHack = []
 
@@ -231,7 +231,8 @@ if __name__ == '__main__':
         # main(sys.argv)
         listOfDicInt = getListOfDicOfIntersections()
         # printListDic(listOfDicInt)
-        whoLikes(sys.argv[1])
+        whoLikes(114266562069063)
+        whoLikes(189973461027841)
     except:
         print "Error: Exception raised!"
         raise
