@@ -80,9 +80,11 @@ def main(argv):
     friendsList.extend(nyarayLikesList)
 
     intersectionList = []
-    intersectionList.extend(getIntersection(meLikes, miaLikes))
-    intersectionList.extend(getIntersection(meLikes, jensLikes))
-    intersectionList.extend(getIntersection(meLikes, nyarayLikes))
+    intersectionList.extend(getIntersection(meLikesIDList, miaLikesList))
+    intersectionList.extend(getIntersection(meLikesIDList, jensLikesList))
+    intersectionList.extend(getIntersection(meLikesIDList, nyarayLikesList))
+
+    pprint(getIntersection(meLikes, miaLikes))
 
     stuffInCommonDict = {}
     finalList = []
@@ -92,13 +94,13 @@ def main(argv):
             finalList.append(element['name'])
             stuffInCommonDict[element['name']] = int(element['id'])
             stuffInCommonDict[element['id']] = (element['name'])
-        print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
+            print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
         # tmpList.append(int(element['id']))
     finalList.sort()
     # print "-------------"
     # pprint(stuffInCommonDict)
 
-    print u"\nWe chose as a test NetHack (112228158790462)\n".encode(sys.getfilesystemencoding())
+    # print u"\nWe chose as a test NetHack (112228158790462)\n".encode(sys.getfilesystemencoding())
 
 
 if __name__ == '__main__':
