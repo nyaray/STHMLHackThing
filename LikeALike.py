@@ -26,6 +26,14 @@ def getFriends(graph, profile):
     return graph.get_connections(profile['id'], "friends")
 
 
+def getIDs(likes):
+    tmpList = []
+    for element in likes['data']:
+        # print u"{}".format(element['name']).encode(sys.getfilesystemencoding())
+        tmpList.append(int(element['id']))
+    return tmpList
+
+
 def main(argv):
     graph = getGraph()
 
@@ -48,18 +56,11 @@ def main(argv):
     # pprint(meLikes.values())
 
     # this is a list of dictionaries
+    # this will be needed to have a mapping between id -> name
     listOfCoolStuff = meLikes['data']
-    listA = []
-    for element in listOfCoolStuff:
-        # print u"{}".format(element['name']).encode(sys.getfilesystemencoding())
-        listA.append(int(element['id']))
 
-    listOfCoolStuff = miaLikes['data']
-    listB = []
-    for element in listOfCoolStuff:
-        # print u"{}".format(element['name']).encode(sys.getfilesystemencoding())
-        listB.append(int(element['id']))
-
+    listA = getIDs(meLikes)
+    listB = getIDs(miaLikes)
     setA = set(listA)
     setB = set(listB)
     setInter = setA & setB
