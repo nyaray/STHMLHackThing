@@ -75,7 +75,7 @@ def main(argv):
     jensLikes = getLikes(graph, jensProfile)
 
 
-    pprint(getListByCategory(meLikes['data']))
+    # pprint(getListByCategory(meLikes['data']))
     # friends = {'nyarayProfile['id']': nyarayLikes,
     #            'miaProfile['id']': miaLikes,
     #            'jensProfile['id']': jensLikes
@@ -106,16 +106,20 @@ def main(argv):
     intersectionList.extend(getIntersection(meLikesIDList, jensLikesList))
     intersectionList.extend(getIntersection(meLikesIDList, nyarayLikesList))
 
-    pprint(getIntersection(meLikes, miaLikes))
+    # pprint(getIntersection(meLikes, miaLikes))
 
+    stuffInCommonListDict = []
     stuffInCommonDict = {}
     finalList = []
     for element in meLikes['data']:
         # print element['id']
         if (int(element['id']) in intersectionList):
+            stuffInCommonDict = {}
             finalList.append(element['name'])
-            stuffInCommonDict[element['name']] = int(element['id'])
-            stuffInCommonDict[element[  'id']] = (element['name'])
+            stuffInCommonDict['name'] = element['name']
+            stuffInCommonDict['id'] = int(element['id'])
+            stuffInCommonDict['category'] = (element['category'])
+            stuffInCommonListDict.append(stuffInCommonDict)
             print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
         # tmpList.append(int(element['id']))
     finalList.sort()
@@ -137,6 +141,8 @@ def main(argv):
         print "Nyaray"
 
     print "Count: {}".format(count)
+
+    pprint(stuffInCommonListDict)
 
 
 if __name__ == '__main__':
