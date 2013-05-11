@@ -231,7 +231,7 @@ if __name__ == '__main__':
         # main(sys.argv)
         listOfDicInt = getListOfDicOfIntersections()
         # printListDic(listOfDicInt)
-        whoLikes(189973461027841)
+        whoLikes(sys.argv[1])
     except:
         print "Error: Exception raised!"
         raise
