@@ -7,7 +7,7 @@ from pprint import pprint
 
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
-oauth_access_token = "CAACEdEose0cBAGe4m6yb8gMBSzTr7U1CyIL0uLWjAwA6U8uZAcFg08wMRp6tE6jGWboXXuDGZAgCTqWqIVIEZAAHh6ZCuCQvz5LN1AuSXoyZCuQvJZAhPKaltyA4TlHYErpGvBTxslCGDIKYw7vmYAWNSivQpATNU0LPSQdr4cgAZDZD"
+oauth_access_token = "CAACEdEose0cBAIFkWc4ZBoE2yeGZCqumjZBFzqVWrDR3AYZA86a75hXn2GZA36oVAgaYq1hDwbZA1GWRUNZBKWZADa7Sw8B2RXn8qc7whPjxthUl41ZB2ekR6Qj64hTGLzkKaK5zPeHfxH0KjioZCk1YfuVUqZC9P3LaJtveDiiZBQU1HwZDZD"
 
 
 def getGraph():
@@ -126,7 +126,7 @@ def main(argv):
     # print "-------------"
     # pprint(stuffInCommonDict)
 
-    print u"\nWe chose as a test Facebook Developers (19292868552)\n".encode(sys.getfilesystemencoding())
+    print u"\nWe chose as a test Facebook Developers (19292868552)".encode(sys.getfilesystemencoding())
     chose = 19292868552
 
     count = 0
@@ -140,9 +140,10 @@ def main(argv):
         count = count + 1
         print "Nyaray"
 
+    print "---------"
     print "Count: {}".format(count)
 
-    pprint(stuffInCommonListDict)
+    # pprint(stuffInCommonListDict)
 
 
 if __name__ == '__main__':
