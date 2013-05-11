@@ -203,9 +203,10 @@ def whoLikes(chose=19292868552):
         tmpList.append("Jens")
 
     if chose in bigListDic[2]['Nyaray']:
-        tmpList.append("Jens")
+        tmpList.append("Nyaray")
 
     dictio['friends'] = tmpList
+    pprint(dictio)
     return dictio
 
     # count = 0
