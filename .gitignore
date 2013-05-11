@@ -60,6 +60,7 @@ DerivedData
 # Other stuff
 ######################
 *~
+*.pyc
 
 config.txt
 
