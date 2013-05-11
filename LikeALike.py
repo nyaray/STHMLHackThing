@@ -56,7 +56,7 @@ def getIntersection(listA, listB):
     return list(set(listA) & set(listB))
 
 
-def main(argv):
+def getListOfDicOfIntersections():
     # pprint (facebook.get_app_access_token("421157351314971", "168836433e1d0efb56320bca5dcef2fd"))
     graph = getGraph()
 
@@ -125,7 +125,17 @@ def main(argv):
     finalList.sort()
     # print "-------------"
     # pprint(stuffInCommonDict)
+    return (stuffInCommonListDict)
 
+
+def printListDic(listOfDicInt):
+    for ele in listOfDicInt:
+        for key, value in ele.iteritems():
+            print u"{} {}".format(key, value).encode(sys.getfilesystemencoding())
+    # print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
+
+
+def somethingElse():
     print u"\nWe chose as a test Facebook Developers (19292868552)".encode(sys.getfilesystemencoding())
     chose = 19292868552
 
@@ -151,7 +161,9 @@ if __name__ == '__main__':
         print "Error, I need python 2.7 or above"
         exit(1)
     try:
-        main(sys.argv)
+        # main(sys.argv)
+        listOfDicInt = getListOfDicOfIntersections()
+        # printListDic(listOfDicInt)
     except:
         print "Error: Exception raised!"
         raise
