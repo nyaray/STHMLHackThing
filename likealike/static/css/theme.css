@@ -1,0 +1,88 @@
+/*
+ * Layout
+ */
+
+body {
+    padding-top: 20px;
+}
+
+h1 {
+    font-family: 'Roboto Slab', Garamond, serif;
+}
+
+ul {
+    list-style: none;
+}
+
+td {
+    padding: 5px;
+
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+#sidebar, #content {
+    padding: 20px;
+    border: 1px solid;
+}
+
+#sidebar {
+    padding-top: 40px;
+    font-size: 22px;
+}
+
+#sidebar > ul > li {
+    margin-bottom: 5px;
+}
+
+#titlebox {
+    padding: 5px 20px;
+}
+
+#tagline {
+    margin-top: -20px;
+
+    font-weight: normal;
+    font-style: italic;
+}
+
+/*
+ * Styling
+ */
+
+/*
+#sidebar {
+    background-color: #efe;
+}
+
+#content {
+    background-color: #fef;
+}
+*/
+
+td {
+    border-color: #aaa;
+}
+
+.likedWrapper {
+    display: block;
+    padding: 5px;
+    border-radius: 999px;
+
+    color: #aaa;
+    background-color: #8ea;
+}
+
+#sidebar, #content {
+    border-color: #aaa;
+    border-radius: 5px;
+}
+
+#titlebox {
+    background-color: #fafafa;
+}
+
+#tagline {
+    color: #999;
+}
+
