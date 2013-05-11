@@ -3,7 +3,7 @@
 
 import facebook
 import sys
-import pprint
+from pprint import pprint
 
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
@@ -28,17 +28,42 @@ def getFriends(graph, profile):
 
 def main(argv):
     graph = getGraph()
+
     myProfile = getProfile(graph)
     meLikes = getLikes(graph, myProfile)
-    # chrisProfile = getProfile(graph, "christopher.loessl")
-    # miaProfile = getProfile(graph, "mia5419")
-    # jensProfile = getProfile(graph, "jens.rosen")
-    # chrisLikes = getLikes(graph, chrisProfile)
-    # pprint.pprint(meLikes)
+
+    chrisProfile = getProfile(graph, "christopher.loessl")
+    chrisLikes = getLikes(graph, chrisProfile)
+    nyarayProfile = getProfile(graph, "nyaray")
+    nyarayLikes = getLikes(graph, nyarayProfile)
+    miaProfile = getProfile(graph, "mia5419")
+    miaLikes = getLikes(graph, miaProfile)
+    jensProfile = getProfile(graph, "jens.rosen")
+    jensLikes = getLikes(graph, jensProfile)
+
+    # gives me the data structure to work with
+    # DEBUG!!
+    # pprint(meLikes)
     # print "------"
-    # print ("My likes {}").format()
-    pprint.pprint(meLikes.values())
-    # print
+    # pprint(meLikes.values())
+
+    # this is a list of dictionaries
+    listOfCoolStuff = meLikes['data']
+    listA = []
+    for element in listOfCoolStuff:
+        # print u"{}".format(element['name']).encode(sys.getfilesystemencoding())
+        listA.append(int(element['id']))
+
+    listOfCoolStuff = miaLikes['data']
+    listB = []
+    for element in listOfCoolStuff:
+        # print u"{}".format(element['name']).encode(sys.getfilesystemencoding())
+        listB.append(int(element['id']))
+
+    setA = set(listA)
+    setB = set(listB)
+    setInter = setA & setB
+    print setInter
 
 
 if __name__ == '__main__':
