@@ -125,20 +125,9 @@ def getListOfDicOfIntersections():
     finalList.sort()
     # print "-------------"
     # pprint(stuffInCommonDict)
-    return (stuffInCommonListDict)
 
-
-def printListDic(listOfDicInt):
-    for ele in listOfDicInt:
-        for key, value in ele.iteritems():
-            print u"{} {}".format(key, value).encode(sys.getfilesystemencoding())
-    # print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
-
-
-def somethingElse():
     print u"\nWe chose as a test Facebook Developers (19292868552)".encode(sys.getfilesystemencoding())
     chose = 19292868552
-
     count = 0
     if chose in miaLikesList:
         count = count + 1
@@ -150,10 +139,34 @@ def somethingElse():
         count = count + 1
         print "Nyaray"
 
-    print "---------"
+    print "--------"
     print "Count: {}".format(count)
 
-    # pprint(stuffInCommonListDict)
+    print u"\nWe chose as a test Facebook Hacker Cup (133954286636768)".encode(sys.getfilesystemencoding())
+    chose = 133954286636768
+    count = 0
+    if chose in miaLikesList:
+        count = count + 1
+        print "Mia"
+    if chose in jensLikesList:
+        count = count + 1
+        print "Jens"
+    if chose in nyarayLikesList:
+        count = count + 1
+        print "Nyaray"
+
+    print "--------"
+    print "Count: {}".format(count)
+
+    return (stuffInCommonListDict)
+
+
+def printListDic(listOfDicInt):
+    for ele in listOfDicInt:
+        for key, value in ele.iteritems():
+            print u"{} {}".format(key, value).encode(sys.getfilesystemencoding())
+    # print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
+
 
 
 if __name__ == '__main__':
