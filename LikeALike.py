@@ -192,6 +192,20 @@ def whoLikes(chose=19292868552):
                 print(ele['name'])
                 dictio = {'name': ele['name']}
 
+    pprint(bigListDic)
+    # return dictio
+
+    tmpList = []
+    if chose in bigListDic[0]['Mia']:
+        tmpList.append("Mia")
+
+    if chose in bigListDic[1]['Jens']:
+        tmpList.append("Jens")
+
+    if chose in bigListDic[2]['Nyaray']:
+        tmpList.append("Jens")
+
+    dictio['friends'] = tmpList
     return dictio
 
     # count = 0
