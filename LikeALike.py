@@ -7,8 +7,7 @@ from pprint import pprint
 
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
-oauth_access_token = "CAACEdEose0cBAIFkWc4ZBoE2yeGZCqumjZBFzqVWrDR3AYZA86a75hXn2GZA36oVAgaYq1hDwbZA1GWRUNZBKWZADa7Sw8B2RXn8qc7whPjxthUl41ZB2ekR6Qj64hTGLzkKaK5zPeHfxH0KjioZCk1YfuVUqZC9P3LaJtveDiiZBQU1HwZDZD"
-
+oauth_access_token = "CAACEdEose0cBAI2hZALVOvCSKLL7y34pHh1O0ye3bjv8WBkVJR5WbkIosws06jzL0zSBvNhcZBZAMD3LrXRmQZAySIsFs2jY8tYZCc6ZAIf14OV0771GThkhrwBRGA9o9Df708Nqu4HG1ZCG2QTodYqAOF6GG4zIrzUdltlDdjOlwZDZD"
 
 def getGraph():
     return facebook.GraphAPI(oauth_access_token)
@@ -27,10 +26,11 @@ def getFriends(graph, profile):
 
 
 def makeDict(data):
-    dic = []
+    dic = list()
     for x in data:
         dic.append(x['category'])
     a = list(set(dic))
+    a.sort()
     return [{'category': x, 'members': list()} for x in a]
 
 
@@ -75,7 +75,7 @@ def getListOfDicOfIntersections():
     jensLikes = getLikes(graph, jensProfile)
 
 
-    # pprint(getListByCategory(meLikes['data']))
+    pprint(getListByCategory(meLikes['data']))
     # friends = {'nyarayProfile['id']': nyarayLikes,
     #            'miaProfile['id']': miaLikes,
     #            'jensProfile['id']': jensLikes
