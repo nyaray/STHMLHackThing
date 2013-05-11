@@ -7,7 +7,7 @@ from pprint import pprint
 
 # put the facebook auth token here
 # later get it directly through the JS SDK provided from FB
-oauth_access_token = "CAACEdEose0cBAGe4m6yb8gMBSzTr7U1CyIL0uLWjAwA6U8uZAcFg08wMRp6tE6jGWboXXuDGZAgCTqWqIVIEZAAHh6ZCuCQvz5LN1AuSXoyZCuQvJZAhPKaltyA4TlHYErpGvBTxslCGDIKYw7vmYAWNSivQpATNU0LPSQdr4cgAZDZD"
+oauth_access_token = "CAACEdEose0cBAPp2gcsJTYwgbfyMG2CMn0yxYESR6k5zyIkw6eXSGFCvlVXSo4bZBlBBYpfZASx9HIcODJcCrJVePZAZAsit9BeL5YqZBsscHtkfZC4UzBFGDUi0x0s3wqXSFN0nuDVYrzeVg50Yw1tKaBqpV6QBtJ8DAoDZAE52gZDZD"
 
 
 def getGraph():
@@ -27,10 +27,11 @@ def getFriends(graph, profile):
 
 
 def makeDict(data):
-    dic = []
+    dic = list()
     for x in data:
         dic.append(x['category'])
     a = list(set(dic))
+    a.sort()
     return [{'category': x, 'members': list()} for x in a]
 
 
@@ -75,7 +76,7 @@ def main(argv):
     jensLikes = getLikes(graph, jensProfile)
 
 
-    # pprint(getListByCategory(meLikes['data']))
+    pprint(getListByCategory(meLikes['data']))
     # friends = {'nyarayProfile['id']': nyarayLikes,
     #            'miaProfile['id']': miaLikes,
     #            'jensProfile['id']': jensLikes
