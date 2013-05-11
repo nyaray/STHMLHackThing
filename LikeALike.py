@@ -25,6 +25,7 @@ def getLikes(graph, profile):
 def getFriends(graph, profile):
     return graph.get_connections(profile['id'], "friends")
 
+
 def makeDict(data):
     dic = []
     for x in data:
@@ -74,7 +75,7 @@ def main(argv):
     jensLikes = getLikes(graph, jensProfile)
 
 
-    print getListByCategory(meLikes['data'])
+    pprint(getListByCategory(meLikes['data']))
     # friends = {'nyarayProfile['id']': nyarayLikes,
     #            'miaProfile['id']': miaLikes,
     #            'jensProfile['id']': jensLikes
@@ -114,7 +115,7 @@ def main(argv):
         if (int(element['id']) in intersectionList):
             finalList.append(element['name'])
             stuffInCommonDict[element['name']] = int(element['id'])
-            stuffInCommonDict[element['id']] = (element['name'])
+            stuffInCommonDict[element[  'id']] = (element['name'])
             print u"{0:50s} ({1})".format(element['name'], int(element['id'])).encode(sys.getfilesystemencoding())
         # tmpList.append(int(element['id']))
     finalList.sort()
@@ -135,7 +136,7 @@ def main(argv):
         count = count + 1
         print "Nyaray"
 
-    print count
+    print "Count: {}".format(count)
 
 
 if __name__ == '__main__':
