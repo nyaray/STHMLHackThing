@@ -1,21 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Start — Stuff U Luv</h2>
-<ul>
-{% for category in categories %}
-	<li>
-		<h2>{{ category.display_name }} (ID: {{ category.id }})</h2>
-		<table>
-			{% for cat_mem in category.members %}
-			<tr>
-				<td>{{ cat_mem.display_name }} (ID: {{ cat_mem.id }})</td>
-				<td>{{ cat_mem.count }}</td>
-				<td><a class="likedWrapper" href="{% url 'show' cat_mem.id %}"><i class="icon-chevron-right"></i></a></td>
-			</tr>
-			{% endfor %}
-		</table>
-	</li>
-{% endfor %}
-</ul>
+<h2>Start — Stuff U N Frendz Luv</h2>
+<table>
+	{% for likedThing in categories|dictsort:"name" %}
+	<tr>
+		<td>{{ likedThing.name }} (ID: {{ likedThing.id }})</td>
+		<!--<td>{{ likedThing.count }}</td>-->
+		<td><a class="likedWrapper" href="{% url 'show' likedThing.id %}"><i class="icon-chevron-right"></i></a></td>
+	</tr>
+	{% endfor %}
+</table>
 {% endblock %}

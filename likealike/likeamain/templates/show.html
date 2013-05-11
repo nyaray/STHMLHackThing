@@ -2,5 +2,9 @@
 
 {% block content %}
 <h2>U Like Alike</h2>
-Frendz dat Luv: <strong>NNN ({{ fbID }})</strong>
+Frendz dat luv: <strong>{{ likedThing.name }}</strong><br />
+<br />
+{% for friend in likedThing.friends|dictsort:"name" %}
+{{ friend }}
+{% endfor %}
 {% endblock %}

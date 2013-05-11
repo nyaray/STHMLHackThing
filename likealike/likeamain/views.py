@@ -44,8 +44,7 @@ def index(request):
 	#		}
 	#	]
 
-	categories = LikeALike.dir()
-	print categories
+	categories = LikeALike.getListOfDicOfIntersections()
 
 	# TODO use a template to render LIST
 	#return HttpResponse("index, listing categories.")
@@ -60,12 +59,11 @@ def index(request):
 def show(request, fbID):
 	""" display friends that also like the object fbID """
 	# TODO LIST := get the list of friends that also like fbID
-	# TODO use a template to render LIST and use fbIDs of friends as values
-	#      posted to show_contact
 
+	likedThing = LikeALike.whoLikes(fbID)
 	template = loader.get_template('show.html')
 	context = Context({
-		'fbID': fbID
+		'likedThing': whoLikes
 	})
 	return HttpResponse(template.render(context))
 
