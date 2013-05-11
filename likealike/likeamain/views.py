@@ -63,7 +63,7 @@ def show(request, fbID):
 	likedThing = LikeALike.whoLikes(fbID)
 	template = loader.get_template('show.html')
 	context = Context({
-		'likedThing': whoLikes
+		'likedThing': likedThing
 	})
 	return HttpResponse(template.render(context))
 
