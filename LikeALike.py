@@ -192,7 +192,7 @@ def whoLikes(chose):
                 print(ele['name'])
                 dictio = {'name': ele['name']}
 
-    pprint(bigListDic)
+    # pprint(bigListDic)
     # return dictio
 
     tmpList = []
